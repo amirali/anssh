@@ -53,7 +53,9 @@ func main() {
 		fmt.Printf("Alas, there's been an error: %v", err)
 		os.Exit(1)
 	}
-	executeSSH()
+	if config.targetHost != "" {
+		executeSSH()
+	}
 }
 
 func extarctHost(keys ...string) []string {
