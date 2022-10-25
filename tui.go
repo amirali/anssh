@@ -60,13 +60,17 @@ func (m model) Update(msg tea.Msg) (tea.Model, tea.Cmd) {
 				config.targetHost = m.hosts[m.selectedGroup][m.cursor]
 				return m, tea.Quit
 			}
+
+		case "esc":
+			m.selectedGroup = ""
+			m.cursor = 0
 		}
 	}
 	return m, nil
 }
 
 func (m model) View() string {
-	s := "Up/Down and J/K to move, Enter to select, Q and Ctrl+C to quit\n\n"
+	s := "Up/Down and J/K to move, Enter to select, Esc for back, Q and Ctrl+C to quit\n\n"
 
 	switch m.selectedGroup {
 	case "":
