@@ -22,5 +22,6 @@ func initFlags() {
 	thisUser, _ := user.Current()
 	flag.Var(&config.inventoryPath, "inv", "Path to ansible inventory")
 	flag.StringVar(&config.user, "user", thisUser.Username, "User to invoke ssh with")
+	flag.StringVar(&config.identity, "identity", "", "Path to identity file")
 	flag.Parse()
 }

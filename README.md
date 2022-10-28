@@ -10,5 +10,5 @@ go install github.com/amirali/anssh@latest
 ## Usage
 You can use this to select your host from the inventory file using an interactive shell and then ssh into it.
 ```bash
-anssh -user=root -inv=first_inventory.ini -inv=second_inventory.ini ...
+anssh -user=root -identity=/path/to/identity/file -inv=first_inventory.ini -inv=second_inventory.ini ...
 ```

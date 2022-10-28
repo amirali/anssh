@@ -14,12 +14,18 @@ type configType struct {
 	inventoryPath stringArrayFlag
 	targetHost    string
 	user          string
+	identity      string
 }
 
 var config *configType
 
 func executeSSH() {
 	sshString := fmt.Sprintf("%s@%s", config.user, config.targetHost)
+
+	if config.identity != "" {
+		sshString += fmt.Sprintf(" -i %s", config.identity)
+	}
+
 	cmd := exec.Command("ssh", sshString)
 	cmd.Stdin = os.Stdin
 	cmd.Stdout = os.Stdout
